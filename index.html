@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+	<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+	<meta id="view" name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<title>Video BG</title>
+
+</head>
+<body>
+	<div id="grandcanyon-video-div">
+		<video id="video" autoplay="autoplay" loop="loop">
+			<source id="source" src="video/grand-canyon.mp4" type="video/mp4">
+		</video>
+		<img src="img/black-birds.png">
+		<div id="caption">GRAND CANYON BABY!!!</div>
+	</div>
+	<br>
+	<div id="output"></div>
+
+<script>
+	$("#caption").css("width", $( "video" ).width());
+	$( window ).resize(function() {
+		$("#caption").css("width", $( "video" ).width());
+	});
+</script>
+<script type="text/javascript">
+	
+	function getsetTheBottom() {
+		//get the bottom px of #video
+		var video = document.getElementById("video");
+		var theCSSprop = window.getComputedStyle(video,null).getPropertyValue("bottom");
+		//set the bottom px of #caption
+		document.getElementById("caption").style.bottom = theCSSprop;
+	}
+	getsetTheBottom();
+	$( window ).resize(function() {
+		getsetTheBottom();
+		});
+
+</script>
+
+</body>
+</html>
